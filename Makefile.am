@@ -133,6 +133,9 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/dictionary.c \
 	src/libespeak-ng/error.c \
 	src/libespeak-ng/espeak_api.c \
+	src/libespeak-ng/espeak_command.c \
+	src/libespeak-ng/event.c \
+	src/libespeak-ng/fifo.c \
 	src/libespeak-ng/ieee80.c \
 	src/libespeak-ng/intonation.c \
 	src/libespeak-ng/numbers.c \
@@ -157,14 +160,6 @@ endif
 if OPT_MBROLA
 src_libespeak_ng_la_CFLAGS  += -DINCLUDE_MBROLA
 src_libespeak_ng_la_SOURCES += src/libespeak-ng/mbrowrap.c
-endif
-
-if OPT_ASYNC
-src_libespeak_ng_la_CFLAGS  += -DUSE_ASYNC
-src_libespeak_ng_la_SOURCES += \
-	src/libespeak-ng/espeak_command.c \
-	src/libespeak-ng/event.c \
-	src/libespeak-ng/fifo.c
 endif
 
 bin_PROGRAMS += src/speak-ng
