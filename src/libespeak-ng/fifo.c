@@ -335,6 +335,9 @@ static void *say_thread(void *p)
 		}
 
 		if (my_stop_is_required) {
+			// cancel the audio early, to be more responsive when using eSpeak NG
+			// for audio.
+			cancel_audio();
 			// no mutex required since the stop command is synchronous
 			// and waiting for my_cond_stop_is_acknowledged
 			init(1);
