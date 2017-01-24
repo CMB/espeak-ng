@@ -824,10 +824,6 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Cancel(void)
 	event_clear_all();
 #endif
 
-#ifdef HAVE_PCAUDIOLIB_AUDIO_H
-	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO)
-		audio_object_flush(my_audio);
-#endif
 	embedded_value[EMBED_T] = 0; // reset echo for pronunciation announcements
 
 	for (int i = 0; i < N_SPEECH_PARAM; i++)
